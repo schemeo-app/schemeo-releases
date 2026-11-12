@@ -1,0 +1,11 @@
+version: 0.3.1
+files:
+  - url: Schemeo-Setup-0.3.1.exe
+    sha512: l+x3OL41UNRg3xK/gNov1NV4NeFAPIi29fHBjbuUQQCoxp6Hx7aZPyHR8nD/RINJSwEBgFA2VUOrHrFz5WdItQ==
+    size: 114565694
+path: Schemeo-Setup-0.3.1.exe
+sha512: l+x3OL41UNRg3xK/gNov1NV4NeFAPIi29fHBjbuUQQCoxp6Hx7aZPyHR8nD/RINJSwEBgFA2VUOrHrFz5WdItQ==
+releaseNotes: |-
+  Verbeterd:
+  • Automatische updates halen de nieuwe versie nu op de juiste plaats op. Installeer deze versie één keer; daarna komen updates vanzelf.
+releaseDate: '2026-11-12T13:27:33.527Z'

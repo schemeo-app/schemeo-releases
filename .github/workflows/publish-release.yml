@@ -1,0 +1,29 @@
+name: Publish release from upload folder
+on:
+  push:
+    branches: [claude/project-thread-y0n8jk]
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Join installer parts and verify
+        run: |
+          cd upload
+          cat Schemeo-Setup-0.3.1.exe.part* > Schemeo-Setup-0.3.1.exe
+          echo "$(cat sha512.txt)  Schemeo-Setup-0.3.1.exe" | sha512sum -c -
+          cp Schemeo-Setup-0.3.1.exe Schemeo-Setup.exe
+      - name: Create release v0.3.1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd upload
+          gh release create v0.3.1 \
+            --repo "$GITHUB_REPOSITORY" \
+            --target main \
+            --title "Schemeo 0.3.1" \
+            --notes-file release-notes.md \
+            --latest \
+            Schemeo-Setup-0.3.1.exe Schemeo-Setup.exe Schemeo-Setup-0.3.1.exe.blockmap latest.yml
